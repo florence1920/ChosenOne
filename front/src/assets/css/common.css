@@ -1,7 +1,11 @@
 /* common.css */
 
 /* basic */
-#app {overflow: hidden; height: 100vh; background: #f1f1f1; padding: 50px;}
+#app {overflow: hidden; height: 100vh; background: #f1f1f1; font-family: 'Noto Sans KR', sans-serif; padding: 50px;}
 
 /* nav */
-#nav {}
+#nav {overflow: hidden; margin: 0 0 30px;}
+#nav .logo {float: left; font-size:30px; font-weight: 300;}
+#nav .logo span {font-weight: 600;}
+#nav .menu {float: right; overflow: hidden;}
+#nav .menu a {float: left; margin: 0 0 0 20px;}
