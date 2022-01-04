@@ -1,7 +1,6 @@
 <template>
   <div>
-      <router-link to='/detail'>상세</router-link>
-      <router-link to='/closet'>옷장</router-link>
+      메인
   </div>
 </template>
 
