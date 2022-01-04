@@ -1,6 +1,6 @@
 <template>
     <div id="top">
-        <p class="tit">MY CLOSET</p>
+        <slot></slot>
         <ul class="point">
             <li><span></span>123,000</li>
             <li><span></span>2222</li>
