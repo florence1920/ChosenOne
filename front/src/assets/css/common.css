@@ -5,7 +5,7 @@
 
 /* nav */
 #nav {overflow: hidden; margin: 0 0 30px;}
-#nav .logo {float: left; font-size:30px; font-weight: 300;}
+#nav .logo {float: left; font-size:40px; font-weight: 300;}
 #nav .logo span {font-weight: 600;}
 #nav .menu {float: right; overflow: hidden;}
 #nav .menu a {float: left; margin: 0 0 0 20px;}
