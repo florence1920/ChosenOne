@@ -1,6 +1,8 @@
 <template>
   <div class="wrapAll">
-    <Top></Top>
+    <Top>
+      <p class="tit">MY CLOSET</p>
+    </Top>
     <List></List>
     <Explan></Explan>
     <Preview></Preview>
