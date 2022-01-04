@@ -1,11 +1,14 @@
 /* common.css */
 
 /* basic */
-#app {overflow: hidden; height: 100vh; background: #f1f1f1; font-family: 'Noto Sans KR', sans-serif; padding: 50px;}
+#app {overflow: hidden; height: 100vh; background: #f1f1f1; font-family: 'Noto Sans KR', sans-serif;}
+#app .wrapAll {overflow: hidden; max-height: calc(100vh - 60px); padding: 0 140px;}
 
 /* nav */
-#nav {overflow: hidden; margin: 0 0 30px;}
-#nav .logo {float: left; font-size:40px; font-weight: 300;}
+#nav {overflow: hidden; padding: 0 140px;}
+
+#nav .logo {float: left; line-height: 60px; letter-spacing: -0.3px; font-size:25px; font-weight: 300;}
 #nav .logo span {font-weight: 600;}
+
 #nav .menu {float: right; overflow: hidden;}
-#nav .menu a {float: left; margin: 0 0 0 20px;}
+#nav .menu a {float: left; text-decoration: none; margin: 22px 0 0 20px;}
