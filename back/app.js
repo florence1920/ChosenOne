@@ -4,10 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var mongoose = require('mongoose');
+//mongoose
+mongoose.connect(process.env.MONGO_URI)
+  .then(()=> { console.log('MongoDB Connected');})
+  .catch(err => {console.log(err);})
+  
 var app = express();
 
 // view engine setup
