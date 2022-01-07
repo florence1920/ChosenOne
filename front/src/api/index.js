@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-//연결 test
-function getTest(){
-    const url = 'http://localhost:3000/test'
-    console.log(2);
+//옷 전체 가져오기
+function getClothes(){
+    const url = 'http://localhost:3000/mycloset'
     return axios.get(url);
 }
 
-export { getTest };
+export { getClothes };

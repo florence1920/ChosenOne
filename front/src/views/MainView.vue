@@ -5,12 +5,9 @@
 </template>
 
 <script>
-import { getTest } from '@/api/index.js';
 export default {
  
-  created () {
-    this.$store.dispatch('connect');
-  },
+  
 }
 </script>
 

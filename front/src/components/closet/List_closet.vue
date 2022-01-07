@@ -23,7 +23,14 @@
             </li>
         </ul>
         <ul class="items">
-            <li class="on">
+            <li v-for="cloth in this.$store.state.clothes" v-bind:key="cloth.id">
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> {{cloth.cloName}}</p>
+            </li>
+            <!-- <li class="on">
                 <div class="cover">
                     <p class="sel">MOUNTED</p>
                 </div>
@@ -99,7 +106,7 @@
                 </div>
                 <div class="img"></div>
                 <p class="tit">ITEM NAME</p>
-            </li>
+            </li> -->
         </ul>
 
         <div class="cover"></div>

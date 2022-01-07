@@ -1,19 +1,26 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {getTest} from '@/api/index.js'
+import { getTest, getClothes} from '@/api/index.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    clothes:[
+      
+    ]
   },
   mutations: {
+    SET_CLOTHES(state, clothes){
+      state.clothes = clothes;
+    }
   },
   actions: {
-    async connect() {
-      console.log(1);
-      const response = await getTest();
-      console.log(response);
+    
+    //옷장 가져오기
+    async GET_CLOTHES(context){
+      const response = await getClothes();
+      context.commit('SET_CLOTHES', response.data)
     }
   },
   modules: {
