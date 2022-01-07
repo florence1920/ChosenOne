@@ -18,6 +18,9 @@ export default {
   components: {
     Top, List, Explan, Preview
   },
+  created () {
+    this.$store.dispatch('GET_CLOTHES');
+  },
 }
 </script>
 

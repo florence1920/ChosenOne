@@ -12,7 +12,7 @@ const routes = [
     component: MainView
   },
   {
-    path: '/closet',
+    path: '/mycloset',
     name: 'ClosetView',
     component: ClosetView
   },
