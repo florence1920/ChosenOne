@@ -184,8 +184,6 @@ export default {
     },
     methods: {
         changeCate(sel) {
-            console.log(sel);
-            console.log('click');
             this.isTrue.forEach(element => {
                 if(element.cate != sel){
                     element.is = false;

@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Closet = require('../models/Closet.js')
 
-/* GET home page. */
 router.get('/', async(req, res, next)=> {
   const closet = await Closet.find({});
   console.log(closet);
