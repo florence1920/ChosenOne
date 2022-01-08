@@ -18,6 +18,8 @@ export default {
   components: {
     Top, List, Explan, Preview
   },
+  methods: {
+  },
   created () {
     this.$store.dispatch('GET_CLOTHES');
   },

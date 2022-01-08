@@ -1,60 +1,40 @@
 <template>
   <div class="list">
       <ul class="category">
-          <li class="on">
+          <li v-on:click="changeCate('1st')" v-bind:class="isTrue[0].class">
               <p class="tit">1st</p>
               <div class="ico"></div>
           </li>
-          <li>
+          <li v-on:click="changeCate('2nd')" v-bind:class="isTrue[1].class">
               <p class="tit">2nd</p>
               <div class="ico"></div>
           </li>
-          <li>
+          <li v-on:click="changeCate('3rd')" v-bind:class="isTrue[2].class">
               <p class="tit">3rd</p>
               <div class="ico"></div>
           </li>
       </ul>
       <ul class="category items">
-          <li>
+          <li v-for="cloth in this.$store.state.reco_set1" v-bind:key="cloth.id" v-show="isTrue[0].is">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
+                  <li><p class="tit_sub">{{cloth.cloName}}</p></li>
               </ul>
           </li>
-          <li>
+      </ul>
+      <ul class="category items">
+          <li v-for="cloth in this.$store.state.reco_set2" v-bind:key="cloth.id" v-show="isTrue[1].is">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
+                  <li><p class="tit_sub">{{cloth.cloName}}</p></li>
               </ul>
           </li>
-          <li>
+      </ul>
+      <ul class="category items">
+          <li v-for="cloth in this.$store.state.reco_set3" v-bind:key="cloth.id" v-show="isTrue[2].is">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
-              </ul>
-          </li>
-          <li>
-              <ul class="item_detail">
-                  <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
-              </ul>
-          </li>
-          <li>
-              <ul class="item_detail">
-                  <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
-              </ul>
-          </li>
-          <li>
-              <ul class="item_detail">
-                  <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
-              </ul>
-          </li>
-          <li>
-              <ul class="item_detail">
-                  <li><div class="ico_clo"></div></li>
-                  <li><p class="tit_sub">와이드 데님 팬츠</p></li>
+                  <li><p class="tit_sub">{{cloth.cloName}}</p></li>
               </ul>
           </li>
       </ul>
@@ -63,8 +43,46 @@
 </template>
 
 <script>
-export default {
 
+export default {
+    data() {
+        return {
+            isTrue:[
+                {
+                    cate: '1st',
+                    is : true,
+                    class : 'on'
+                },
+                {
+                    cate: '2nd',
+                    is : false,
+                    class : ''
+                },
+                {
+                    cate: '3rd',
+                    is : false,
+                    class : ''
+                }
+            ]
+        }
+    },   
+    methods: {
+        changeCate(sel) {
+            this.isTrue.forEach(element => {
+                if(element.cate != sel){
+                    element.is = false;
+                    element.class = '';
+                }else{
+                    element.is = true;
+                    element.class = 'on';
+                }
+            });
+        }
+    },
+ created () {
+    //this.$store.dispatch('GET_CLOTHES');
+    this.$store.dispatch('RECO_CLO');
+ },
 }
 </script>
 

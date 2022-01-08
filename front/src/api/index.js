@@ -6,4 +6,10 @@ function getClothes(){
     return axios.get(url);
 }
 
-export { getClothes };
+//옷 추천 하기
+function recoClothes(){
+    const url = 'http://localhost:3000/reco'
+    return axios.get(url);
+}
+
+export { getClothes,recoClothes };

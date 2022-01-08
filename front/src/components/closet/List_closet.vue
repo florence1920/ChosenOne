@@ -1,29 +1,29 @@
 <template>
     <div class="list">
         <ul class="category">
-            <li class="on">
+            <li v-on:click="changeCate('outer')" v-bind:class="isTrue[0].class">
                 <p class="tit">OUTER</p>
                 <p class="ico"></p>
             </li>
-            <li>
+            <li v-on:click="changeCate('top')" v-bind:class="isTrue[1].class">
                 <p class="tit">TOP</p>
                 <p class="ico"></p>
             </li>
-            <li>
+            <li v-on:click="changeCate('pants')" v-bind:class="isTrue[2].class">
                 <p class="tit">PANTS</p>
                 <p class="ico"></p>
             </li>
-            <li>
+            <li v-on:click="changeCate('socks')" v-bind:class="isTrue[3].class">
                 <p class="tit">SOCKS</p>
                 <p class="ico"></p>
             </li>
-            <li>
+            <li v-on:click="changeCate('shoes')" v-bind:class="isTrue[4].class">
                 <p class="tit">SHOES</p>
                 <p class="ico"></p>
             </li>
         </ul>
-        <ul class="items">
-            <li v-for="cloth in this.$store.state.clothes" v-bind:key="cloth.id">
+        <ul class="items" v-show="isTrue[0].is">
+            <li v-for="cloth in this.$store.state.clothes_outer" v-bind:key="cloth.id">
                 <div class="cover">
                     <p class="sel">CHANGE</p>
                 </div>
@@ -108,6 +108,42 @@
                 <p class="tit">ITEM NAME</p>
             </li> -->
         </ul>
+        <ul class="items" v-show="isTrue[1].is">
+            <li v-for="cloth in this.$store.state.clothes_top" v-bind:key="cloth.id">
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> {{cloth.cloName}}</p>
+            </li>
+        </ul>
+        <ul class="items" v-show="isTrue[2].is">
+            <li v-for="cloth in this.$store.state.clothes_pants" v-bind:key="cloth.id">
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> {{cloth.cloName}}</p>
+            </li>
+        </ul>
+        <ul class="items" v-show="isTrue[3].is">
+            <li v-for="cloth in this.$store.state.clothes_socks" v-bind:key="cloth.id">
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> {{cloth.cloName}}</p>
+            </li>
+        </ul>
+        <ul class="items" v-show="isTrue[4].is">
+            <li v-for="cloth in this.$store.state.clothes_shoes" v-bind:key="cloth.id">
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> {{cloth.cloName}}</p>
+            </li>
+        </ul>
 
         <div class="cover"></div>
     </div>
@@ -115,7 +151,50 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            isTrue:[
+                {
+                    cate: 'outer',
+                    is : true,
+                    class : 'on'
+                },
+                {
+                    cate: 'top',
+                    is : false,
+                    class : ''
+                },
+                {
+                    cate: 'pants',
+                    is : false,
+                    class : ''
+                },
+                {
+                    cate: 'socks',
+                    is : false,
+                    class : ''
+                },
+                {
+                    cate: 'shoes',
+                    is : false,
+                    class : ''
+                },
+            ]
+        }
+    },
+    methods: {
+        changeCate(sel) {
+            this.isTrue.forEach(element => {
+                if(element.cate != sel){
+                    element.is = false;
+                    element.class = '';
+                }else{
+                    element.is = true;
+                    element.class = 'on';
+                }
+            });
+        }
+    },
 }
 </script>
 
