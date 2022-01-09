@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    clothes_all:[],
     clothes_outer:[],
     clothes_top:[],
     clothes_pants:[],
@@ -14,10 +15,13 @@ export default new Vuex.Store({
     reco_set1:[],
     reco_set2:[],
     reco_set3:[],
+    select_cloth : {}
   },
   mutations: {
     SET_CLOTHES(state, clothes){
       //filter 함수로 조건에 맞는 배열 생성 
+      //0. 전체
+      state.clothes_all = clothes;
       //1.outer
       state.clothes_outer = clothes.filter(item => item.cate === "outer");
       //2.top
@@ -33,6 +37,14 @@ export default new Vuex.Store({
       state.reco_set1 = set.arr;
       state.reco_set2 = set.arr1;
       state.reco_set3 = set.arr2;
+    },
+    SET_CLOTH(state, cloName){
+      
+      state.clothes_all.forEach(i => {
+        if(cloName == i.cloName){
+          state.select_cloth = i;
+        }
+      });
     }
   },
   actions: {

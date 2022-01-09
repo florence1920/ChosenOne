@@ -1,6 +1,6 @@
 <template>
     <div class="explan">
-        <p class="tit">OVERFIT<br/>LONG-ARM</p>
+        <p class="tit">{{this.$store.state.select_cloth.cloName}}</p>
         <ul class="stat">
             <li>                
                 <p class="name down">THICKNESS</p>
