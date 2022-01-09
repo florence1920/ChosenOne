@@ -1,6 +1,6 @@
 <template>
     <div class="preview">
-        preview
+        {{this.$store.state.select_cloth.cloName}}
     </div>
 </template>
 

@@ -23,12 +23,12 @@
             </li>
         </ul>
         <ul class="items" v-show="isTrue[0].is">
-            <li v-for="cloth in this.$store.state.clothes_outer" v-bind:key="cloth.id">
+            <li v-for="cloth in this.$store.state.clothes_outer" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
                 <div class="cover">
                     <p class="sel">CHANGE</p>
                 </div>
                 <div class="img"></div>
-                <p class="tit"> {{cloth.cloName}}</p>
+                <p class="tit"> {{cloth.cloName}}`</p>
             </li>
             <!-- <li class="on">
                 <div class="cover">
@@ -109,7 +109,7 @@
             </li> -->
         </ul>
         <ul class="items" v-show="isTrue[1].is">
-            <li v-for="cloth in this.$store.state.clothes_top" v-bind:key="cloth.id">
+            <li v-for="cloth in this.$store.state.clothes_top" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
                 <div class="cover">
                     <p class="sel">CHANGE</p>
                 </div>
@@ -118,7 +118,7 @@
             </li>
         </ul>
         <ul class="items" v-show="isTrue[2].is">
-            <li v-for="cloth in this.$store.state.clothes_pants" v-bind:key="cloth.id">
+            <li v-for="cloth in this.$store.state.clothes_pants" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
                 <div class="cover">
                     <p class="sel">CHANGE</p>
                 </div>
@@ -127,7 +127,7 @@
             </li>
         </ul>
         <ul class="items" v-show="isTrue[3].is">
-            <li v-for="cloth in this.$store.state.clothes_socks" v-bind:key="cloth.id">
+            <li v-for="cloth in this.$store.state.clothes_socks" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
                 <div class="cover">
                     <p class="sel">CHANGE</p>
                 </div>
@@ -136,7 +136,7 @@
             </li>
         </ul>
         <ul class="items" v-show="isTrue[4].is">
-            <li v-for="cloth in this.$store.state.clothes_shoes" v-bind:key="cloth.id">
+            <li v-for="cloth in this.$store.state.clothes_shoes" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
                 <div class="cover">
                     <p class="sel">CHANGE</p>
                 </div>
@@ -183,6 +183,7 @@ export default {
         }
     },
     methods: {
+        //카테고리 변경
         changeCate(sel) {
             this.isTrue.forEach(element => {
                 if(element.cate != sel){
@@ -193,6 +194,10 @@ export default {
                     element.class = 'on';
                 }
             });
+        },
+        //옷 선택
+        clothCheck(cloName){
+            this.$store.commit('SET_CLOTH',cloName);
         }
     },
 }
