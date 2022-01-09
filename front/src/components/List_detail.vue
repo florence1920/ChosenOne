@@ -14,24 +14,24 @@
               <div class="ico"></div>
           </li>
       </ul>
-      <ul class="category items">
-          <li v-for="cloth in this.$store.state.reco_set1" v-bind:key="cloth.id" v-show="isTrue[0].is">
+      <ul class="category items" v-show="isTrue[0].is">
+          <li v-for="cloth in this.$store.state.reco_set1" v-bind:key="cloth.id">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
                   <li><p class="tit_sub">{{cloth.cloName}}</p></li>
               </ul>
           </li>
       </ul>
-      <ul class="category items">
-          <li v-for="cloth in this.$store.state.reco_set2" v-bind:key="cloth.id" v-show="isTrue[1].is">
+      <ul class="category items" v-show="isTrue[1].is">
+          <li v-for="cloth in this.$store.state.reco_set2" v-bind:key="cloth.id">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
                   <li><p class="tit_sub">{{cloth.cloName}}</p></li>
               </ul>
           </li>
       </ul>
-      <ul class="category items">
-          <li v-for="cloth in this.$store.state.reco_set3" v-bind:key="cloth.id" v-show="isTrue[2].is">
+      <ul class="category items" v-show="isTrue[2].is">
+          <li v-for="cloth in this.$store.state.reco_set3" v-bind:key="cloth.id">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
                   <li><p class="tit_sub">{{cloth.cloName}}</p></li>
