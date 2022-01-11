@@ -21,6 +21,10 @@
                 <p class="tit">SHOES</p>
                 <p class="ico"></p>
             </li>
+            <li v-bind:class="isTrue[5].class">
+                <p class="tit">ADD</p>
+                <p class="ico"></p>
+            </li>
         </ul>
         <ul class="items" v-show="isTrue[0].is">
             <li v-for="cloth in this.$store.state.clothes_outer" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
@@ -144,6 +148,15 @@
                 <p class="tit"> {{cloth.cloName}}</p>
             </li>
         </ul>
+        <ul class="items" v-show="isTrue[5].is">
+            <li v-for="cloth in this.$store.state.clothes_shoes" v-bind:key="cloth.id" v-on:click="clothCheck(cloth.cloName)">
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> {{cloth.cloName}}</p>
+            </li>
+        </ul>
 
         <div class="cover"></div>
     </div>
@@ -176,6 +189,10 @@ export default {
                 },
                 {
                     cate: 'shoes',
+                    is : false,
+                    class : ''
+                },
+                {
                     is : false,
                     class : ''
                 },
