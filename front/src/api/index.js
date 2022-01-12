@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //옷 전체 가져오기
 function getClothes(){
-    const url = 'http://localhost:3000/mycloset'
+    const url = 'http://localhost:3000/closet'
     return axios.get(url);
 }
 
@@ -12,4 +12,10 @@ function recoClothes(){
     return axios.get(url);
 }
 
-export { getClothes,recoClothes };
+//옷 등록하기 
+function addCloth(cloth){
+    const url = 'http://localhost:3000/closet/edit'
+    return axios.post(url, cloth);
+}
+
+export { getClothes,recoClothes,addCloth };

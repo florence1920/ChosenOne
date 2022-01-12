@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import ClosetView from '@/views/ClosetView.vue'
 import DetailView from '@/views/DetailView.vue'
 import MainView from '@/views/MainView.vue'
+import ClosetAdminView from '@/views/admin/ClosetAdminView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,7 +13,7 @@ const routes = [
     component: MainView
   },
   {
-    path: '/mycloset',
+    path: '/closet',
     name: 'ClosetView',
     component: ClosetView
   },
@@ -20,6 +21,11 @@ const routes = [
     path: '/detail',
     name: 'DetailView',
     component: DetailView
+  },
+  {
+    path: '/closet/edit',
+    name: 'ClosetAdminView',
+    component: ClosetAdminView
   },
   
 ]
