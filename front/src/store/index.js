@@ -14,7 +14,7 @@ export default new Vuex.Store({
     clothes_shoes:[],
     reco_set1:[],
     reco_set2:[],
-    reco_set3:[],
+    reco_set3 :[],
     select_cloth : {}
   },
   mutations: {
@@ -39,7 +39,6 @@ export default new Vuex.Store({
       state.reco_set3 = set.arr2;
     },
     SET_CLOTH(state, cloName){
-      
       state.clothes_all.forEach(i => {
         if(cloName == i.cloName){
           state.select_cloth = i;
@@ -56,7 +55,6 @@ export default new Vuex.Store({
     //옷 추천하기 
     async RECO_CLO(context){
       const response = await recoClothes();
-      console.log(response);
       context.commit('SET_RECO', response.data);
     }
   },

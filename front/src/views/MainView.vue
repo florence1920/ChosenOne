@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapAll">
       메인
   </div>
 </template>
@@ -12,5 +12,5 @@ export default {
 </script>
 
 <style scoped>
-    a {margin:20px; font-size: 100px; text-decoration: none; color:brown;}
+    
 </style>

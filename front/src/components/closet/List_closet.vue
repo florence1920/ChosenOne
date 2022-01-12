@@ -30,6 +30,13 @@
                 <div class="img"></div>
                 <p class="tit"> {{cloth.cloName}}`</p>
             </li>
+            <li>
+                <div class="cover">
+                    <p class="sel">CHANGE</p>
+                </div>
+                <div class="img"></div>
+                <p class="tit"> hi</p>
+            </li>
             <!-- <li class="on">
                 <div class="cover">
                     <p class="sel">MOUNTED</p>
@@ -144,7 +151,6 @@
                 <p class="tit"> {{cloth.cloName}}</p>
             </li>
         </ul>
-
         <div class="cover"></div>
     </div>
 </template>

@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/mycloset', myclosetRouter);
+app.use('/closet', myclosetRouter);
 app.use('/reco', recoRouter);
 
 // catch 404 and forward to error handler
