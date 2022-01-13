@@ -3,6 +3,7 @@
     <ul class="clo_list">
         <li v-for="cloth in this.$store.state.clothes_all" v-bind:key="cloth.id">
             <p>{{cloth.cloName}}</p>
+            <button v-on:click="deleteCloth(cloth.cloName)">Delete</button>
         </li>
         <li v-on:click="openAdd">
             <p>+</p>
@@ -35,7 +36,7 @@
 </template>
 
 <script>
-import { addCloth } from '@/api/index.js'
+import { addCloth, delCloth } from '@/api/index.js'
 export default {
     data() {
         return {
@@ -56,6 +57,11 @@ export default {
             await addCloth(cloth);
             this.$store.dispatch('GET_CLOTHES');
             this.clear();
+        },
+        async deleteCloth(cloName){
+            console.log(`delete ${cloName}`);
+            await delCloth(cloName);
+            this.$store.dispatch('GET_CLOTHES');
         },
         clear(){
             this.cloName = '',

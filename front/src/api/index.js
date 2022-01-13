@@ -18,4 +18,14 @@ function addCloth(cloth){
     return axios.post(url, cloth);
 }
 
-export { getClothes,recoClothes,addCloth };
+//옷 삭제하기 
+function delCloth(cloth){
+    const url = 'http://localhost:3000/closet/edit'
+    return axios.delete(url, {
+        data:{
+            cloName : cloth
+        }
+    });
+}
+
+export { getClothes,recoClothes,addCloth, delCloth };
