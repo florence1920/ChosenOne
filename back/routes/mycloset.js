@@ -32,4 +32,20 @@ router.delete('/edit', async(req, res, next)=> {
   }
 });
 
+//특정선수 데이터 수정
+router.put('/edit' ,async(req,res,next)=>{
+  console.log(`body : ${req.body}`);
+  try{
+    const newCloset = await Closet.findOneAndUpdate(
+      {cloName : req.body.cloName},
+      {$set:{cate:req.body.cate}}
+    )
+    res.json({
+      newCloset
+    });
+  }catch(err){
+    res.status(500).json({message : err.message})
+  }
+})
+
 module.exports = router;
