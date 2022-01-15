@@ -1,6 +1,8 @@
 <template>
   <div class="wrapAll">
-      메인
+      <div class="weatherApi">
+        <p>날 씨 확 인</p>
+      </div>
   </div>
 </template>
 
@@ -12,5 +14,6 @@ export default {
 </script>
 
 <style scoped>
-    
+    .weatherApi {padding: 40px; width: 200px; height: 200px; background: rgb(0, 225, 255); cursor:pointer;}
+    p {font-weight: bold;}
 </style>
