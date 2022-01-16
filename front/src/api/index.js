@@ -31,7 +31,15 @@ function delCloth(cloth){
 //옷 수정하기  
 function editCloth(cloth){
     const url = 'http://localhost:3000/closet/edit'
-    console.log(cloth);
     return axios.put(url, cloth);
 }
-export { getClothes,recoClothes,addCloth, delCloth,editCloth };
+
+//날씨 테스트 
+function testWea(){
+    const url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=N1Boimqw71nVaE5QDo%2F%2FooL%2BfgtmpfZE8elUvJX5zPHx%2Bb7dzKKixvJJ4lDn2TodqPwYNH3AzE4RSiabt6%2F9kQ%3D%3D&numOfRows=10&pageNo=1&base_date=20220116&base_time=1800&nx=55&ny=127'
+    return axios.get(url,{ withCredentials: true, headers:{
+        'Access-Control-Allow-Origin': '*',
+    }});
+}
+
+export { getClothes,recoClothes,addCloth, delCloth,editCloth,testWea };
