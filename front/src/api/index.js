@@ -31,7 +31,12 @@ function delCloth(cloth){
 //옷 수정하기  
 function editCloth(cloth){
     const url = 'http://localhost:3000/closet/edit'
-    console.log(cloth);
     return axios.put(url, cloth);
 }
-export { getClothes,recoClothes,addCloth, delCloth,editCloth };
+
+//날씨 테스트 
+function getWeather(url){
+    return axios.get(url);
+}
+
+export { getClothes,recoClothes,addCloth, delCloth,editCloth,getWeather };

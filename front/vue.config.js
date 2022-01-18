@@ -1,3 +1,7 @@
 module.exports = {
-    lintOnSave : false
+    lintOnSave : false,
+    devServer: {
+      proxy: 'http://apis.data.go.kr'
+    }
 }
+

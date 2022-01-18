@@ -32,9 +32,9 @@ export default {
 
 <style scoped>
     .sub {font-size: 65px; font-weight: bold;}
-    .infoWrap {overflow: hidden; margin: 400px 0 0;}
+    .infoWrap {overflow: hidden; margin: 300px 0 0;}
     .infoWrap li {float: left; margin: 0 40px 0 0; width: 100px; height: 200px; font-size: 15px;}
     .infoWrap li p {text-align: center;}
-    .infoWrap .imgBox {width: 100px; padding: 0 0 10px 25px;}
-    .infoWrap img {display:inline-block; width: 50px;}
+    .infoWrap .imgBox {width: 20px; padding: 0 0 10px 25px;}
+    .infoWrap img {display:inline-block; width: 20px;}
 </style>
