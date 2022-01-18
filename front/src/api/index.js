@@ -35,11 +35,8 @@ function editCloth(cloth){
 }
 
 //날씨 테스트 
-function testWea(){
-    const url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=N1Boimqw71nVaE5QDo%2F%2FooL%2BfgtmpfZE8elUvJX5zPHx%2Bb7dzKKixvJJ4lDn2TodqPwYNH3AzE4RSiabt6%2F9kQ%3D%3D&numOfRows=10&pageNo=1&base_date=20220116&base_time=1800&nx=55&ny=127'
-    return axios.get(url,{ withCredentials: true, headers:{
-        'Access-Control-Allow-Origin': '*',
-    }});
+function getWeather(url){
+    return axios.get(url);
 }
 
-export { getClothes,recoClothes,addCloth, delCloth,editCloth,testWea };
+export { getClothes,recoClothes,addCloth, delCloth,editCloth,getWeather };

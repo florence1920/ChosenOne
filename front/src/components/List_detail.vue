@@ -15,7 +15,7 @@
           </li>
       </ul>
       <ul class="category items" v-show="isTrue[0].is">
-          <li v-for="cloth in this.$store.state.reco_set1" v-bind:key="cloth.id">
+          <li v-for="(cloth, index) in this.$store.state.reco_set1" v-bind:key="index">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
                   <li><p class="tit_sub">{{cloth.cloName}}</p></li>
@@ -23,7 +23,7 @@
           </li>
       </ul>
       <ul class="category items" v-show="isTrue[1].is">
-          <li v-for="cloth in this.$store.state.reco_set2" v-bind:key="cloth.id">
+          <li v-for="(cloth, index) in this.$store.state.reco_set2" v-bind:key="index">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
                   <li><p class="tit_sub">{{cloth.cloName}}</p></li>
@@ -31,7 +31,7 @@
           </li>
       </ul>
       <ul class="category items" v-show="isTrue[2].is">
-          <li v-for="cloth in this.$store.state.reco_set3" v-bind:key="cloth.id">
+          <li v-for="(cloth, index) in this.$store.state.reco_set3" v-bind:key="index">
               <ul class="item_detail">
                   <li><div class="ico_clo"></div></li>
                   <li><p class="tit_sub">{{cloth.cloName}}</p></li>
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-
 export default {
     data() {
         return {
@@ -77,11 +76,14 @@ export default {
                     element.class = 'on';
                 }
             });
+        },
+        recoCloth(){
+            
+            this.$store.dispatch('RECO_CLO');
         }
     },
- created () {
+ mounted () {
     //this.$store.dispatch('GET_CLOTHES');
-    this.$store.dispatch('RECO_CLO');
  },
 }
 </script>

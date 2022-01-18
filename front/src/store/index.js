@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getClothes,recoClothes } from '@/api/index.js'
+import { getClothes,recoClothes,getWeather } from '@/api/index.js'
+import { base } from '../../../back/models/Closet'
 
 Vue.use(Vuex)
 
@@ -55,7 +56,62 @@ export default new Vuex.Store({
     //옷 추천하기 
     async RECO_CLO(context){
       const response = await recoClothes();
+      console.log(response);
       context.commit('SET_RECO', response.data);
+    },
+    //날씨 가져오기 
+    async GET_WEATHER(){
+      //api 날짜 세팅
+      let baseArr = ['02', '05', '08', '11', '14', '17', '20', '23'];
+      let today = new Date();
+      let year = today.getFullYear();
+      let month = today.getMonth()+1;
+      let day = today.getDate();
+      //let hours = 3;
+      let hours = today.getHours();
+      let baseTime = 0;
+      //내가 알고 싶은건 다음날 6시 온도임 
+      //base Time 02, 05, 08, 11, 14 ,17, 20, 23
+      //0~1 / 전날 23시
+      //2~4 / 02시 base - 현재시간 =  0, -1, -2  
+      //현재 시각이 0이나 1일 때만 date 전날로, baseTime 23으로
+      if(hours == 0 || hours == 1){
+        baseTime = 23;
+        day = day - 1;
+        console.log(`baseTime : ${baseTime} day : ${day}`);
+      }else {
+        baseArr.forEach(base => {
+          let h = base - hours;
+          if(h == 0 || h == -1 || h == -2){
+            baseTime = base;
+          }
+        });
+      }
+      //0 붙이는 작업
+      if(month < 10){
+        month = '0' + month;
+      }if(day < 10){
+        day = '0' + day;
+      }if(hours < 10){
+        hours = '0' + hours;
+      }
+      baseTime = baseTime + '00';
+      let base_date = year + '' + month + '' + day;
+
+      let serviceKey = 'N1Boimqw71nVaE5QDo%2F%2FooL%2BfgtmpfZE8elUvJX5zPHx%2Bb7dzKKixvJJ4lDn2TodqPwYNH3AzE4RSiabt6%2F9kQ%3D%3D';
+      let numOfRows = 20;
+      let pageNo = 1;
+      let category = 'TMP';
+      let nx = 55;
+      let ny = 127;
+      let dataType='JSON';
+      let url = `1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&numOfRows=${numOfRows}&pageNo=${pageNo}&base_date=${base_date}&base_time=${baseTime}&category=${category}&nx=${nx}&ny=${ny}&dataType=${dataType}`;
+      console.log(url);
+      //1360000/VilageFcstInfoService_2.0/getVilageFcst?se
+      //rviceKey=N1Boimqw71nVaE5QDo%2F%2FooL%2BfgtmpfZE8elUvJX5zPHx%2Bb7dzKKixvJJ4lDn2TodqPwYNH3AzE4RSiabt6%2F9kQ%3D%3D
+      //&numOfRows=12&pageNo=3&base_date=20220118&base_time=2300&category=TMP&nx=55&ny=127&dataType=JSON
+      const response = await getWeather(url);
+      console.log(response);
     }
   },
   modules: {

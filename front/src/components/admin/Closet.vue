@@ -4,6 +4,7 @@
         <li v-for="cloth in this.$store.state.clothes_all" v-bind:key="cloth.id">
             <p>{{cloth.cloName}}</p>
             <p>{{cloth.cate}}</p>
+            <p>{{cloth.weather}}</p>
             <button v-on:click="deleteCloth(cloth.cloName)">Delete</button>
             <button v-on:click="openEdit(cloth)">Edit</button>
         </li>
@@ -30,6 +31,15 @@
                     </select>
                 </li>
                 <li>
+                    <select v-model="weather">
+                        <option value="" disabled hidden>Select Weather</option>
+                        <option value="cold">cold</option>
+                        <option value="cool">cool</option>
+                        <option value="warm">warm</option>
+                        <option value="hot">hot</option>
+                    </select>
+                </li>
+                <li>
                     <button type="sumbit"> 추가 </button>
                 </li>
             </ul>
@@ -45,8 +55,9 @@
                     <input type="text" v-model="edit.cloName" disabled>
                 </li>
                 <li>
+                <li>
                     <select v-model="edit.cate">
-                        <option value="" disabled hidden>Select Category</option>
+                        <option value="" disabled hidden>Select Cate</option>
                         <option value="outer">outer</option>
                         <option value="top">top</option>
                         <option value="pants">pants</option>
@@ -70,6 +81,7 @@ export default {
         return {
            cloName : 'Cloth Name',
            cate : '',
+           weather : '',
            edit : {
                cloName : '',
                cate : '',
@@ -87,7 +99,8 @@ export default {
         async addCloset() {
             const cloth = {
                 cloName : this.cloName,
-                cate : this.cate
+                cate : this.cate,
+                weather : this.weather
             }
             console.log(cloth);
             await addCloth(cloth);
@@ -110,6 +123,7 @@ export default {
         clear(){
             this.cloName = '',
             this.cate='',
+            this.weather='',
             this.edit.cloName = '',
             this.edit.cate=''
         }

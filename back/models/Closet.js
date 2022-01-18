@@ -7,6 +7,9 @@ const ClosetSchema = mongoose.Schema({
     },
     cloName:{
         type:String
+    },
+    weather :{
+        type:String
     }
 })
 
